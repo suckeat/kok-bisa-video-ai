@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kok Bisa Video AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b16;color:white;font-family:Arial,sans-serif}
+header{padding:20px;text-align:center;background:#11162a}
+.logo{font-size:26px;font-weight:bold;color:#7c9cff}
+main{max-width:700px;margin:auto;padding:20px}
+.card{background:#151b30;padding:22px;border-radius:18px;margin:20px 0}
+h1{text-align:center;font-size:30px}
+p{color:#b7c1dc;line-height:1.6}
+label{display:block;margin:15px 0 8px}
+textarea,select{width:100%;padding:14px;border-radius:10px;border:1px solid #343e60;background:#0b1020;color:white;font-size:16px}
+button{width:100%;padding:15px;background:#635bff;color:white;border:0;border-radius:12px;font-size:17px;font-weight:bold;margin-top:18px}
+button:active{opacity:.8}
+#result{margin-top:20px;word-break:break-word}
+footer{text-align:center;padding:25px;color:#77809d}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">✨ KOK BISA VIDEO AI</div>
+<p>AI Video Creator</p>
+</header>
+<main>
+<h1>Ubah Ide Jadi Video 🎬</h1>
+<p style="text-align:center">Buat konsep video AI dengan mudah.</p>
+
+<div class="card">
+<label>Deskripsi Video</label>
+<textarea id="prompt" rows="5" placeholder="Contoh: seekor kucing menjadi astronot di luar angkasa..."></textarea>
+
+<label>Gaya Video</label>
+<select id="style">
+<option>Cinematic</option>
+<option>Anime</option>
+<option>Realistic</option>
+<option>3D Animation</option>
+<option>Fantasy</option>
+</select>
+
+<label>Durasi</label>
+<select id="duration">
+<option>5 detik</option>
+<option>10 detik</option>
+<option>15 detik</option>
+</select>
+
+<button onclick="createVideo()">✨ Buat Konsep Video</button>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h3>🚀 Fitur</h3>
+<p>• Generator ide video</p>
+<p>• Prompt AI otomatis</p>
+<p>• Tampilan mobile friendly</p>
+<p>• Gratis di GitHub Pages</p>
+</div>
+</main>
+<footer>© 2026 Kok Bisa Video AI</footer>
+
+<script>
+function createVideo(){
+const p=document.getElementById("prompt").value.trim();
+const s=document.getElementById("style").value;
+const d=document.getElementById("duration").value;
+const r=document.getElementById("result");
+if(!p){r.innerHTML="⚠️ Masukkan deskripsi video dahulu.";return;}
+const text=`Create a ${d} ${s} video. Scene: ${p}. High quality, smooth motion, cinematic lighting.`;
+r.innerHTML="<h3>🎬 Prompt Video AI</h3><p id='out'></p><button onclick='copyPrompt()'>📋 Salin Prompt</button>";
+document.getElementById("out").textContent=text;
+}
+function copyPrompt(){
+navigator.clipboard.writeText(document.getElementById("out").textContent)
+.then(()=>alert("Prompt berhasil disalin!"))
+.catch(()=>alert("Silakan salin prompt secara manual."));
+}
+</script>
+</body>
+</html>
